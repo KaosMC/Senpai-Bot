@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("?help", "View this page.", true)
         .addField("?getrole", "Get a character's role.", true)
         .addField("?hello", "Huh, get those mean replies.", true)
-        .addField("?setprefix", "Requires special permission -- Modifies bot prefix.", true);
+        .addField("?setprefix", "Modifies bot prefix.", true);
 
     channel.send(embedMsg).then(embedMsg => {
         embedMsg.delete(10000).catch(err => console.log(`An error has occured: \n` + err));
