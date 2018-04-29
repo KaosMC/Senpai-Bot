@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
             let member = message.member;
 
             if (!member.roles.some(role => roles.includes(role.name))) {
+                message.delete();
+                
                 let role = message.guild.roles.find("name", args[0]);
                 member.addRole(role);
 
@@ -18,18 +20,24 @@ module.exports.run = async (bot, message, args) => {
                     msg.delete(10000).catch(err => console.log(`An error has occured: \n` + err));
                 });
             } else {
+                message.delete();
+
                 let msg = "You may only have one role.";
                 channel.send(msg).then(msg => {
                     msg.delete(10000).catch(err => console.log(`An error has occured: \n` + err));
                 });
             }
         } else {
+            message.delete();
+
             let msg = `Unknown role.\nPlease note that roles are case-sensitive.`;
             channel.send(msg).then(msg => {
                 msg.delete(10000).catch(err => console.log(`An error has occured: \n` + err));
             });
         }
     } else {
+        message.delete();
+
         let msg = `Insufficient arguments.\nUsage: ?getrole <role name>`;
         channel.send(msg).then(msg => {
             msg.delete(10000).catch(err => console.log(`An error has occured: \n` + err));
