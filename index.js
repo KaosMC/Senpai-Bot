@@ -43,19 +43,13 @@ bot.on("message", async message => {
   let helloCmd = prefix + "hello";
   let getRoleCmd = prefix + "getrole";
   let setPrefixCmd = prefix + "setprefix";
-  let defaultRoleCmd = prefix + "defaultrole";
   let helpCmd = prefix + "help";
 
-  if (cmd === helloCmd | cmd === getRoleCmd | cmd === setPrefixCmd | cmd === defaultRoleCmd | cmd === helpCmd) {
+  if (cmd === helloCmd | cmd === getRoleCmd | cmd === setPrefixCmd | cmd === helpCmd) {
     let cmdFile = bot.commands.get(cmd.slice(prefix.length));
     cmdFile.run(bot, message, args);
   }
 
-});
-
-bot.on("guildMemberAdd", (member) => {
-  let memberRole = member.guild.roles.find("name", `${botconfig.default_role}`);
-  member.addRole(memberRole).catch(console.error);
 });
 
 bot.login(process.env.BOT_TOKEN);
