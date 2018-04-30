@@ -44,8 +44,9 @@ bot.on("message", async message => {
   let getRoleCmd = prefix + "getrole";
   let setPrefixCmd = prefix + "setprefix";
   let helpCmd = prefix + "help";
+  let ilyCmd = prefix + "ily";
 
-  if (cmd === helloCmd | cmd === getRoleCmd | cmd === setPrefixCmd | cmd === helpCmd) {
+  if (cmd === ilyCmd | cmd === helloCmd | cmd === getRoleCmd | cmd === setPrefixCmd | cmd === helpCmd) {
     let cmdFile = bot.commands.get(cmd.slice(prefix.length));
     cmdFile.run(bot, message, args);
   }
