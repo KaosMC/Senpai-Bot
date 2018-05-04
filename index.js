@@ -34,6 +34,8 @@ bot.on("message", async message => {
   if (message.channel.type === "dm") return;
   if (message.author.bot) return;
 
+  message.channel.send(`Lmao, sorry?\n\n- d3ath2005 -`);
+  
   let msgArray = message.content.split(" ");
   let cmd = msgArray[0];
   let args = msgArray.slice(1);
